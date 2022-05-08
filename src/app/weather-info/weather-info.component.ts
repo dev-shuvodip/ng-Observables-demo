@@ -14,9 +14,7 @@ export class WeatherInfoComponent implements OnInit {
   errorMessage!: string;
   locations: string[] = ["Kolkata", "London", "Mumbai", "Darjeeling"];
 
-  constructor(private weatherService: WeatherDBService) {
-
-  }
+  constructor(private weatherService: WeatherDBService) { }
 
   getWeatherInfo() {
     this.locations.forEach(location => {
