@@ -19,7 +19,6 @@ export class WeatherInfoComponent implements OnInit {
   }
 
   getWeatherInfo() {
-
     this.locations.forEach(location => {
       this.weatherService.getWeather(location)
         .subscribe({
@@ -30,7 +29,6 @@ export class WeatherInfoComponent implements OnInit {
           complete: () => console.info("completed")
         });
     });
-
   }
 
   ngOnInit(): void {
