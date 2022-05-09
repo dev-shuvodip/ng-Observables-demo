@@ -8,11 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ToDoInfoComponent } from './to-do-info/to-do-info.component';
+import { ToDoComponent } from './to-do-info/to-do/to-do.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToDoInfoComponent
+    ToDoInfoComponent,
+    ToDoComponent
   ],
   imports: [
     FormsModule,

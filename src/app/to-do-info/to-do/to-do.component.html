@@ -1,0 +1,16 @@
+<div class="card m-2">
+  <div class="card-header text-primary">ToDo Id {{ toDo.id }}</div>
+  <div class="card-body">
+    <label class="text-secondary">userId </label>
+    <p>{{ toDo.userId }}</p>
+    <label class="text-secondary">title </label>
+    <p>
+      <strong *ngIf="toDo.completed; else notCompleted" class="text-success"
+        >{{ toDo.title }}
+      </strong>
+      <ng-template #notCompleted>
+        <em class="text-danger">{{ toDo.id }}: {{ toDo.title }}</em>
+      </ng-template>
+    </p>
+  </div>
+</div>

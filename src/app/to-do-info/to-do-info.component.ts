@@ -10,19 +10,20 @@ import { ToDosService } from '../services/get.service/to-dos.service';
 })
 export class ToDoInfoComponent implements OnInit {
 
-  toDoInfo = new Observable<IToDo[]>();
-  toDoObj: IToDo[] = [];
-  toDoFirstTitle!: string;
+  toDos = new Observable<IToDo[]>();
   errorMessage!: string;
 
   constructor(private toDoService: ToDosService) {
-    this.toDoInfo = this.toDoService.getTodoObs();  //  calling service to get the Observable
+    this.toDos = this.toDoService.getTodoObs();  //  calling service to get the Observable
   }
 
   ngOnInit(): void {
-    this.toDoInfo.subscribe({  //  subscribing to the observable
+    this.toDos.subscribe({  //  subscribing to the observable
       next: (data: IToDo[]) => {
-        this.setToDo(data);  //  calling method to set the value from the next notification to the class property
+        data.forEach(
+          (toDo: IToDo) => {
+            console.log(`{\n\tuserId: ${toDo.userId},\n\tid: ${toDo.id},\n\ttitle: "${toDo.title}",\n\tcompleted: ${toDo.completed}\n}`);
+          })
       },
       error: (err: Error) => {
         this.errorMessage = err.message;
@@ -31,12 +32,6 @@ export class ToDoInfoComponent implements OnInit {
         console.log("complete")
       }
     });
-  }
-
-  setToDo(toDoObj: IToDo[]) {
-    this.toDoObj = toDoObj;
-    this.toDoFirstTitle = this.toDoObj[0].title;
-    console.log(this.toDoFirstTitle);
   }
 
 }

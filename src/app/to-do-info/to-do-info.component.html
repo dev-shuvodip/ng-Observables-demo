@@ -1,5 +1,3 @@
-<p [innerText]="toDoFirstTitle"></p>  <!-- Testing property binding -->
-<p>to-do-info works!</p>
-<ul *ngFor="let toDo of toDoInfo | async">  <!-- Testing async pipelining of IToDo[] elements and binding the result as NgIterable to the HTML Template -->
-  <li>{{ toDo.title }}</li>
-</ul>
+<div class="card p-2 m-3">
+  <to-do *ngFor="let toDoItem of toDos | async" [toDo]="toDoItem"></to-do>
+</div>
