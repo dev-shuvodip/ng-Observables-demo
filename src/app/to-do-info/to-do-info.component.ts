@@ -33,5 +33,4 @@ export class ToDoInfoComponent implements OnInit {
       }
     });
   }
-
 }
