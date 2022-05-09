@@ -14,13 +14,10 @@ export class ToDosService {
   constructor(private httpclient: HttpClient) { }
 
   getTodoObs(): Observable<IToDo[]> {
-
     return this.httpclient.get<IToDo[]>(this.toDoApi);
-
   }
 
   private handleError(err: HttpErrorResponse): Observable<IToDo> {
-
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
 
@@ -31,6 +28,6 @@ export class ToDosService {
     }
     console.error(errorMessage);
     return throwError(() => new Error(err.error));
-
   }
+  
 }
