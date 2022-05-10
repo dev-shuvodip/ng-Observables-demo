@@ -5,11 +5,11 @@
     <p>{{ toDo.userId }}</p>
     <label class="text-secondary">title </label>
     <p>
-      <strong *ngIf="toDo.completed; else notCompleted" class="text-success"
-        >{{ toDo.title }}
+      <strong *ngIf="toDo.completed; else notCompleted" class="text-success">
+        {{ toDo.id }}: {{ toDo.title }}
       </strong>
       <ng-template #notCompleted>
-        <em class="text-danger">{{ toDo.id }}: {{ toDo.title }}</em>
+        <em class="text-danger"> {{ toDo.id }}: {{ toDo.title }} </em>
       </ng-template>
     </p>
   </div>
